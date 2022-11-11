@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -47,8 +48,12 @@ const Footer = styled.footer`
 `;
 
 const ErrorModal = (props) => {
-  return (
-    <Error onClick={props.onConfirm}>
+  const Backdrop = (props) => {
+    return <Error onClick={props.onConfirm}></Error>;
+  };
+
+  const Mod = (props) => {
+    return (
       <Modal>
         <Header>
           <Title>{props.title}</Title>
@@ -60,7 +65,23 @@ const ErrorModal = (props) => {
           <Button onClick={props.onConfirm}>Okay</Button>
         </Footer>
       </Modal>
-    </Error>
+    );
+  };
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <Backdrop onConfirm={props.onConfirm} />,
+        document.getElementById("backdrop")
+      )}
+      {ReactDOM.createPortal(
+        <Mod
+          title={props.title}
+          message={props.message}
+          onConfirm={props.onConfirm}
+        />,
+        document.getElementById("mod")
+      )}
+    </>
   );
 };
 

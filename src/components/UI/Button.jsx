@@ -8,13 +8,13 @@ const Btn = styled.button`
   padding: 0.25rem 1rem;
   cursor: pointer;
 
-  & button:hover,
-  & button:active {
+  &:hover,
+  &:active {
     background: #741188;
     border-color: #741188;
   }
 
-  & button:focus {
+  &:focus {
     outline: none;
   }
 `;
