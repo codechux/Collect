@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Addusers from "./components/Users/AddUsers";
 import UsersList from "./components/Users/UsersList";
 
-function App(props) {
+function App() {
   const [user, setUser] = useState([]);
 
   const onAddHandler = (name, age) => {

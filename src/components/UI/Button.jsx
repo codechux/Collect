@@ -20,7 +20,7 @@ const Btn = styled.button`
 `;
 
 const Button = (props) => {
-  return <Btn>{props.children}</Btn>;
+  return <Btn onClick={props.onClick}>{props.children}</Btn>;
 };
 
 export default Button;
